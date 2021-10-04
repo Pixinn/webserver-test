@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  
+  # WEBSERVER
+  webserver_test:
+    image: linuxserver/nginx:latest
+    hostname: webserver_test
+    container_name: webserver_test
+    domainname: localhost    
+    volumes:
+      - ./www/:/config/www:ro
+      - ./config:/config/nginx:rw
+      - ./log:/config/log/nginx:rw
+    ports:
+      - "80:80"
+      - "8080:8080"
+      - "443:443"
+    restart: unless-stopped

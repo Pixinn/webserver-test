@@ -1,0 +1,30 @@
+# ********* www.xtof.photo **********
+
+server {
+	listen 80 default_server;
+
+	listen 443 ssl;
+
+	root /config/www;
+	index index.html index.htm index.php;
+
+	server_name xtof.photo www.xtof.photo;
+
+	ssl_certificate /config/keys/cert.crt;
+	ssl_certificate_key /config/keys/cert.key;
+
+	client_max_body_size 0;
+}
+
+
+# ************** pub.xtof.photo *************
+
+server{
+
+	listen 80;
+	listen 443 ssl;
+
+	root /config/pub;
+
+	server_name pub.xtof.photo;
+}
